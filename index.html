@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="دراسة حالة هندسية تفاعلية تشرح الفرق بين الدفرنس المفتوح و LSD في رياضة الدريفت" />
+  <meta name="author" content="مختبر الدريفت الهندسي" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="دفرنس مفتوح أم LSD؟ الفيزياء التي تصنع الدريفت" />
+  <meta property="og:description" content="تحليل هندسي معمّق لآليات توزيع العزم وتأثيرها المباشر على سلوك السيارة داخل منعطفات الدريفت." />
+  <meta property="og:type" content="article" />
+
+  <title>دراسة حالة: الدفرنس المفتوح vs LSD | مختبر الدريفت الهندسي</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR — شريط التنقل العلوي
+  ============================================================ -->
+  <header class="site-header" role="banner">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+
+      <a class="navbar__brand" href="#hero" aria-label="الصفحة الرئيسية">
+        <span class="navbar__brand-icon" aria-hidden="true">⚙</span>
+        <span class="navbar__brand-name">مختبر الدريفت الهندسي</span>
+      </a>
+
+      <button
+        class="navbar__toggle"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+        aria-controls="navbar-menu"
+        type="button"
+      >
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+      <ul class="navbar__menu" id="navbar-menu" role="list">
+        <li class="navbar__item">
+          <a class="navbar__link" href="#hero">المقدمة</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link" href="#technical-breakdown">الشرح التقني</a>
+        </li>
+        <li class="navbar__item">
+          <a class="navbar__link navbar__link--cta" href="#lsd-simulator">أداة المحاكاة</a>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION — القسم الرئيسي
+  ============================================================ -->
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+
+    <!-- خلفية الفيديو السينمائي -->
+    <figure class="hero__video-backdrop" aria-hidden="true">
+      <!--
+        استبدل المسارات أدناه بفيديو الخلفية الفعلي.
+        يبقى الـ placeholder كخلفية احتياطية إن لم يتوفر فيديو.
+      -->
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/drift-poster.jpg"
+      >
+        <source src="assets/drift-bg.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero__video-placeholder" role="presentation"></div>
+      <div class="hero__video-overlay" aria-hidden="true"></div>
+    </figure>
+
+    <!-- محتوى النص فوق الفيديو -->
+    <div class="hero__content">
+      <span class="hero__label">دراسة حالة هندسية</span>
+
+      <h1 class="hero__title" id="hero-title">
+        دفرنس مفتوح أم <abbr title="Limited Slip Differential">LSD</abbr>؟
+        <br />
+        <span class="hero__title-accent">الفيزياء التي تصنع الدريفت</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        تحليل هندسي معمّق لآليات توزيع العزم وتأثيرها المباشر على
+        سلوك السيارة داخل منعطفات الدريفت عالية السرعة.
+      </p>
+
+      <div class="hero__cta-group">
+        <a class="hero__cta hero__cta--primary" href="#technical-breakdown">
+          ابدأ الدراسة
+        </a>
+        <a class="hero__cta hero__cta--secondary" href="#lsd-simulator">
+          جرّب أداة المحاكاة
+        </a>
+      </div>
+
+      <!-- مؤشر التمرير للأسفل -->
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span class="hero__scroll-icon">↓</span>
+        <span class="hero__scroll-label">تمرير للأسفل</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       TECHNICAL BREAKDOWN — قسم الشرح التقني
+  ============================================================ -->
+  <main id="main-content">
+    <section class="technical-breakdown" id="technical-breakdown" aria-labelledby="technical-title">
+
+      <header class="section-header">
+        <span class="section-header__tag">الأساس النظري</span>
+        <h2 class="section-header__title" id="technical-title">الشرح التقني</h2>
+        <p class="section-header__description">
+          فهم الفروقات الجوهرية بين النظامين من منظور ميكانيكي وديناميكي
+        </p>
+      </header>
+
+      <div class="technical-grid">
+
+        <!-- ————————————————————————————————————
+             CARD 1 — فيزياء الدفرنس المفتوح
+        ———————————————————————————————————— -->
+        <article class="tech-card tech-card--open-diff" id="open-diff" aria-labelledby="open-diff-title">
+
+          <header class="tech-card__header">
+            <div class="tech-card__icon-wrap" aria-hidden="true">
+              <!-- أيقونة: ترسان مع سهم انفلات -->
+              <svg class="tech-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="24" r="8" />
+                <circle cx="18" cy="24" r="2.5" fill="currentColor" />
+                <circle cx="34" cy="24" r="5" />
+                <path d="M30 14 L38 6 M38 6 L32 6 M38 6 L38 12" stroke-width="2.2" />
+              </svg>
+            </div>
+            <div>
+              <span class="tech-card__badge">النظام الأول</span>
+              <h3 class="tech-card__title" id="open-diff-title">فيزياء الدفرنس المفتوح</h3>
+            </div>
+          </header>
+
+          <div class="tech-card__body">
+
+            <p class="tech-card__intro">
+              الدفرنس المفتوح (Open Differential) هو الحل الميكانيكي الكلاسيكي
+              الذي يسمح لعجلتي المحور بالدوران بسرعتين مختلفتين،
+              وهو ما يُعدّ ضرورياً في المنعطفات العادية.
+            </p>
+
+            <!-- تفاصيل المبدأ الفيزيائي -->
+            <section class="tech-card__principle" aria-labelledby="open-diff-principle">
+              <h4 class="tech-card__subtitle" id="open-diff-principle">مبدأ توزيع العزم</h4>
+              <p>
+                يوزّع الدفرنس المفتوح العزم (Torque) بنسبة ثابتة 50/50 بين
+                العجلتين في حالة التوازن، لكنه يحوّله أوتوماتيكياً نحو
+                العجلة الأقل مقاومة (Least Resistance Path) عند فقدان
+                الإحكام (Traction Loss).
+              </p>
+            </section>
+
+            <!-- نقطة الإخفاق في الدريفت -->
+            <section class="tech-card__failure-point" aria-labelledby="open-diff-failure">
+              <h4 class="tech-card__subtitle" id="open-diff-failure">نقطة الإخفاق في الدريفت</h4>
+              <p>
+                عند رفع الغاز داخل المنعطف، تفقد العجلة الداخلية (المرتفعة
+                عن الأرض جزئياً بفعل زاوية الانقلاب) إحكامها أولاً،
+                فيُحوَّل إليها كامل العزم المتاح — مما يُنتج سلوك
+                "الدوران الفارغ" بدلاً من دفع السيارة للخروج من المنعطف.
+              </p>
+            </section>
+
+            <!-- رسم توضيحي SVG: مسار العزم في الدفرنس المفتوح -->
+            <figure class="tech-card__diagram" aria-label="مخطط الدفرنس المفتوح">
+              <div class="diagram-placeholder" role="presentation">
+                <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <!-- المحور -->
+                  <line x1="40" y1="80" x2="280" y2="80" stroke="currentColor" stroke-width="2" opacity="0.4" />
+                  <!-- العجلة اليسرى (الداخلية) -->
+                  <rect x="20" y="50" width="20" height="60" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                  <text x="30" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="currentColor" opacity="0.7">INSIDE</text>
+                  <!-- العجلة اليمنى (الخارجية) -->
+                  <rect x="280" y="50" width="20" height="60" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                  <text x="290" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="currentColor" opacity="0.7">OUTSIDE</text>
+                  <!-- صندوق الدفرنس -->
+                  <rect x="140" y="60" width="40" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="2" />
+                  <text x="160" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="currentColor">DIFF</text>
+                  <!-- سهم العزم نحو الداخلية (100%) -->
+                  <path d="M140 80 L60 80" stroke="#ff6b1a" stroke-width="3" marker-end="url(#arrow-orange)" />
+                  <text x="100" y="70" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b1a" font-weight="700">100% TORQUE</text>
+                  <!-- سهم باهت نحو الخارجية (0%) -->
+                  <path d="M180 80 L260 80" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" opacity="0.3" marker-end="url(#arrow-faded)" />
+                  <text x="220" y="70" text-anchor="middle" font-family="monospace" font-size="11" fill="currentColor" opacity="0.4">0%</text>
+                  <!-- تعريف رؤوس الأسهم -->
+                  <defs>
+                    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                      <path d="M0,0 L10,5 L0,10 Z" fill="#ff6b1a" />
+                    </marker>
+                    <marker id="arrow-faded" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                      <path d="M0,0 L10,5 L0,10 Z" fill="currentColor" opacity="0.4" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+              <figcaption class="diagram-placeholder__caption">
+                مخطط: مسار تدفق العزم في الدفرنس المفتوح أثناء فقدان الإحكام
+              </figcaption>
+            </figure>
+
+            <!-- معادلة هندسية -->
+            <aside class="tech-card__formula-box" aria-label="معادلة هندسية">
+              <h4 class="tech-card__formula-title">المعادلة الجوهرية</h4>
+              <p class="tech-card__formula" dir="ltr">
+                T<sub>left</sub> + T<sub>right</sub> = T<sub>input</sub>
+                &nbsp;|&nbsp;
+                T<sub>loss side</sub> → 100% on traction loss
+              </p>
+            </aside>
+
+          </div>
+
+          <footer class="tech-card__footer">
+            <span class="tech-card__verdict tech-card__verdict--weak">
+              ضعيف في الدريفت بسبب فقدان السيطرة على توزيع العزم
+            </span>
+          </footer>
+
+        </article>
+
+
+        <!-- ————————————————————————————————————
+             CARD 2 — كيف يتدخل الـ LSD
+        ———————————————————————————————————— -->
+        <article class="tech-card tech-card--lsd" id="lsd-section" aria-labelledby="lsd-title">
+
+          <header class="tech-card__header">
+            <div class="tech-card__icon-wrap" aria-hidden="true">
+              <!-- أيقونة: ترسان مع قفل -->
+              <svg class="tech-card__icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="16" cy="24" r="7" />
+                <circle cx="32" cy="24" r="7" />
+                <path d="M22 24 L26 24" stroke-width="3" />
+                <rect x="20" y="34" width="8" height="7" rx="1.5" />
+                <path d="M22 34 V31 a2 2 0 0 1 4 0 V34" />
+              </svg>
+            </div>
+            <div>
+              <span class="tech-card__badge">النظام الثاني</span>
+              <h3 class="tech-card__title" id="lsd-title">
+                كيف يتدخل الـ <abbr title="Limited Slip Differential">LSD</abbr>
+              </h3>
+            </div>
+          </header>
+
+          <div class="tech-card__body">
+
+            <p class="tech-card__intro">
+              الـ LSD (Limited Slip Differential — الدفرنس محدود الانزلاق)
+              يُضيف آلية قفل جزئية تمنع نقل العزم الكامل لجهة واحدة،
+              مما يُعيد السيطرة الهندسية للسائق في أصعب لحظات الدريفت.
+            </p>
+
+            <!-- أنواع الـ LSD -->
+            <section class="tech-card__types" aria-labelledby="lsd-types">
+              <h4 class="tech-card__subtitle" id="lsd-types">أنواع الـ LSD المستخدمة في الدريفت</h4>
+              <ul class="tech-card__type-list" role="list">
+                <li class="tech-card__type-item">
+                  <strong>Mechanical LSD (1-way / 1.5-way / 2-way):</strong>
+                  يعتمد على صفائح احتكاك (Clutch Plates) تتفاعل مع
+                  قوى الضغط المحوري الناتجة عن العزم — هو الأكثر شيوعاً
+                  في سيارات الدريفت الاحترافية.
+                </li>
+                <li class="tech-card__type-item">
+                  <strong>Torsen LSD:</strong>
+                  يستخدم تروساً متشابكة (Worm Gears) لتوزيع العزم
+                  بنسب متغيرة حسب فارق السرعة — سلس وخالٍ من التآكل.
+                </li>
+                <li class="tech-card__type-item">
+                  <strong>Spool (Full Lock):</strong>
+                  قفل كامل دائم للمحور — يُلغي الدفرنس تماماً،
+                  ويُستخدم في سيارات الدريفت المتخصصة فقط.
+                </li>
+              </ul>
+            </section>
+
+            <!-- آلية التدخل -->
+            <section class="tech-card__mechanism" aria-labelledby="lsd-mechanism">
+              <h4 class="tech-card__subtitle" id="lsd-mechanism">آلية التدخل الهندسي</h4>
+              <p>
+                عندما يتجاوز فارق سرعة الدوران بين العجلتين حداً معيّناً،
+                تبدأ صفائح الاحتكاك بالضغط وتنقل جزءاً من العزم للعجلة
+                الأسرع (الخارجية) — مما يُجبرها على المشاركة في الدفع
+                ويُنتج انزلاقاً منضبطاً وموجَّهاً بدلاً من دوران فارغ.
+              </p>
+            </section>
+
+            <!-- رسم توضيحي SVG: توزيع العزم في الـ LSD -->
+            <figure class="tech-card__diagram" aria-label="مخطط الـ LSD">
+              <div class="diagram-placeholder" role="presentation">
+                <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <!-- المحور -->
+                  <line x1="40" y1="80" x2="280" y2="80" stroke="currentColor" stroke-width="2" opacity="0.4" />
+                  <!-- العجلتان -->
+                  <rect x="20" y="50" width="20" height="60" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                  <text x="30" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="currentColor" opacity="0.7">INSIDE</text>
+                  <rect x="280" y="50" width="20" height="60" rx="3" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6" />
+                  <text x="290" y="135" text-anchor="middle" font-family="monospace" font-size="10" fill="currentColor" opacity="0.7">OUTSIDE</text>
+                  <!-- صندوق LSD مع رمز القفل -->
+                  <rect x="140" y="60" width="40" height="40" rx="4" fill="none" stroke="#ff6b1a" stroke-width="2" />
+                  <text x="160" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b1a">LOCK</text>
+                  <!-- سهم العزم نحو الداخلية (50%) -->
+                  <path d="M140 80 L60 80" stroke="#ff6b1a" stroke-width="3" marker-end="url(#arrow-lsd)" />
+                  <text x="100" y="70" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b1a" font-weight="700">50%</text>
+                  <!-- سهم العزم نحو الخارجية (50%) -->
+                  <path d="M180 80 L260 80" stroke="#ff6b1a" stroke-width="3" marker-end="url(#arrow-lsd)" />
+                  <text x="220" y="70" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b1a" font-weight="700">50%</text>
+                  <defs>
+                    <marker id="arrow-lsd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                      <path d="M0,0 L10,5 L0,10 Z" fill="#ff6b1a" />
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+              <figcaption class="diagram-placeholder__caption">
+                مخطط: توزيع العزم في الـ LSD عند دخول المنعطف بزاوية دريفت
+              </figcaption>
+            </figure>
+
+            <!-- معادلة هندسية -->
+            <aside class="tech-card__formula-box" aria-label="معادلة هندسية">
+              <h4 class="tech-card__formula-title">نسبة القفل (Lock Ratio)</h4>
+              <p class="tech-card__formula" dir="ltr">
+                T<sub>transferred</sub> = μ × F<sub>axial</sub> × r<sub>clutch</sub>
+                &nbsp;|&nbsp;
+                Lock% ∈ [25%, 100%]
+              </p>
+            </aside>
+
+          </div>
+
+          <footer class="tech-card__footer">
+            <span class="tech-card__verdict tech-card__verdict--strong">
+              مثالي للدريفت — يمنح السائق سيطرة كاملة على زاوية الانزلاق
+            </span>
+          </footer>
+
+        </article>
+
+      </div><!-- /.technical-grid -->
+
+    </section><!-- /#technical-breakdown -->
+
+
+    <!-- ============================================================
+         LSD SIMULATOR — حاوية أداة المحاكاة (markup-first)
+    ============================================================ -->
+    <section class="simulator-section" aria-labelledby="simulator-title">
+
+      <header class="section-header">
+        <span class="section-header__tag">تجربة تفاعلية</span>
+        <h2 class="section-header__title" id="simulator-title">أداة المحاكاة التفاعلية</h2>
+        <p class="section-header__description">
+          اضبط معاملات الدفرنس وشاهد كيف تتغيّر ديناميكيات السيارة في الوقت الفعلي
+        </p>
+      </header>
+
+      <div id="lsd-simulator" role="region" aria-label="محاكاة الدفرنس التفاعلية">
+
+        <!-- ————————————————————————————————————
+             A. لوحة التحكم
+        ———————————————————————————————————— -->
+        <aside class="sim__panel">
+          <h3 class="sim__panel-title">
+            <span class="sim__indicator" aria-hidden="true"></span>
+            CONTROL_PANEL
+          </h3>
+
+          <!-- شريط الوقود -->
+          <div class="sim__control">
+            <label for="throttle">
+              <span>دواسة الوقود</span>
+              <span class="sim__value" id="throttle-value">0%</span>
+            </label>
+            <input type="range" id="throttle" min="0" max="100" value="0" step="1" />
+          </div>
+
+          <!-- زاوية التوجيه -->
+          <div class="sim__control">
+            <label for="steering">
+              <span>زاوية التوجيه</span>
+              <span class="sim__value" id="steering-value">0°</span>
+            </label>
+            <input type="range" id="steering" min="0" max="30" value="0" step="1" />
+          </div>
+
+          <!-- نوع الدفرنس -->
+          <div class="sim__control">
+            <label for="diff-type"><span>نوع الدفرنس</span></label>
+            <select id="diff-type">
+              <option value="open">Open Differential</option>
+              <option value="lsd">Limited Slip (LSD)</option>
+            </select>
+          </div>
+        </aside>
+
+        <!-- ————————————————————————————————————
+             B. شاشة البيانات الحية
+        ———————————————————————————————————— -->
+        <section class="sim__telemetry">
+
+          <!-- مشهد السيارة المرئي -->
+          <div class="sim__scene">
+            <div class="sim__car">
+              <div class="sim__chassis"></div>
+              <div class="sim__wheel sim__wheel--fl"></div>
+              <div class="sim__wheel sim__wheel--fr"></div>
+              <div class="sim__wheel sim__wheel--rl" data-wheel="inside"></div>
+              <div class="sim__wheel sim__wheel--rr" data-wheel="outside"></div>
+              <div class="sim__skid sim__skid--rl"></div>
+              <div class="sim__skid sim__skid--rr"></div>
+            </div>
+          </div>
+
+          <!-- شبكة الأرقام الحية -->
+          <div class="sim__readouts">
+            <div class="sim__readout">
+              <span class="sim__readout-label">INSIDE WHEEL</span>
+              <span class="sim__readout-value" id="inside-rpm">0</span>
+              <span class="sim__readout-unit">RPM</span>
+            </div>
+
+            <div class="sim__readout">
+              <span class="sim__readout-label">OUTSIDE WHEEL</span>
+              <span class="sim__readout-value" id="outside-rpm">0</span>
+              <span class="sim__readout-unit">RPM</span>
+            </div>
+
+            <div class="sim__readout sim__readout--status">
+              <span class="sim__readout-label">TRACTION</span>
+              <span class="sim__readout-value" id="traction-status">STABLE</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </section>
+
+  </main><!-- /#main-content -->
+
+
+  <!-- ============================================================
+       FOOTER — تذييل الصفحة
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+
+      <p class="site-footer__brand">مختبر الدريفت الهندسي</p>
+
+      <nav class="site-footer__nav" aria-label="روابط التذييل">
+        <a class="site-footer__link" href="#hero">المقدمة</a>
+        <a class="site-footer__link" href="#technical-breakdown">الشرح التقني</a>
+        <a class="site-footer__link" href="#lsd-simulator">المحاكاة</a>
+      </nav>
+
+      <small class="site-footer__copy">
+        دراسة حالة هندسية — جميع الحقوق محفوظة
+      </small>
+
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="simulator.js" defer></script>
+
+</body>
+</html>
